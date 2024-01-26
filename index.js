@@ -1,7 +1,14 @@
-import { intializeApp, applicationDefault } from "firebase-admin";
+import admin from "firebase-admin";
+// const { credential, intializeApp } = admin;
 import { getMessaging } from "firebase-admin/messaging";
 import express, { json } from "express";
 import cors from "cors";
+
+// const { intializeApp, applicationDefault } = require("firebase-admin");
+// const { getMessaging } = require("firebase-admin/messaging");
+// const express = require("express");
+// const { json } = require("express");
+// const cors = require("cors");
 
 process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
@@ -25,8 +32,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-intializeApp({
-  credential: applicationDefault(),
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(),
   projectId: "laundary-579b0",
 });
 
